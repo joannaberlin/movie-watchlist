@@ -4,8 +4,33 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Movie Watch List</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="index.css" />
 	</head>
 	<body>
-		<h2>Welcome to your Movie Watch List!</h2>
+		<main class="main_wrapper">
+			<header>
+				<h2>Find your film</h2>
+				<h4>My Watchlist</h4>
+			</header>
+			<form id="search-movie">
+				<input
+					type="search"
+					id="movie-search"
+					placeholder="Search for a movie"
+				/>
+				<button>Search</button>
+			</form>
+			<section class="movies-list_wrapper">
+				<div class="movie-info_wrapper"></div>
+			</section>
+		</main>
+		<button id="btn-test">Click Me</button>
+		<script src="index.js"></script>
 	</body>
 </html>
