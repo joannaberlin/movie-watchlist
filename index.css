@@ -20,6 +20,14 @@ h2 {
 	font-size: 2rem;
 }
 
+.movies-list_wrapper {
+	padding: 0 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 70vh;
+}
+
 .main_wrapper header {
 	background-image: url('/images/background-img.png');
 	background-size: cover;
@@ -30,6 +38,23 @@ h2 {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+}
+
+.img-text_wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.img-text_wrapper img {
+	height: 100px;
+	opacity: 25%;
+}
+
+.img-text_wrapper p {
+	color: rgb(190, 190, 190);
+	font-weight: 600;
+	font-size: 1.2rem;
 }
 
 input[type='search'] {
