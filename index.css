@@ -5,9 +5,14 @@ body {
 	font-optical-sizing: auto;
 }
 
+a {
+	text-decoration: none;
+}
+
 h2,
 h4,
-p {
+p,
+a {
 	margin: 0;
 }
 
@@ -17,7 +22,7 @@ h4 {
 }
 
 h2 {
-	font-size: 2rem;
+	font-size: 2.1rem;
 }
 
 .movies-list_wrapper {
@@ -28,7 +33,7 @@ h2 {
 	height: 70vh;
 }
 
-.main_wrapper header {
+#header {
 	background-image: url('/images/background-img.png');
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -38,6 +43,11 @@ h2 {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+}
+
+#header a {
+	color: white;
+	font-weight: 600;
 }
 
 .img-text_wrapper {
