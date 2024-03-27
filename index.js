@@ -24,8 +24,11 @@ const handleSearch = (e) => {
 		.then((data) => {
 			moviesList = data.Search;
 
+			moviesListContainer.innerHTML = '';
+
 			for (let movie of moviesList) {
 				imgTextWrapper.classList.add('hide');
+				imgTextWrapper.classList.remove('start');
 				moviesListWrapper.classList.remove('start-display');
 				moviesListContainer.innerHTML += `
 				<div class="img-item">
@@ -34,8 +37,10 @@ const handleSearch = (e) => {
 						<h3>${movie.Title}</h3>
 						<p>${movie.Year}</p>
 						<a href="https://www.imdb.com/title/${movie.imdbID}/">Check more on IMDb</a>
+						<button id="${movie.imdbID}">Watchlist</button>
 					</div>
 				</div>
+				<hr/>
 				`;
 			}
 		});

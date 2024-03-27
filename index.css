@@ -32,6 +32,7 @@ h2 {
 }
 
 #movies-list_wrapper {
+	margin-top: 50px;
 	padding: 0 5px;
 	display: flex;
 	align-items: center;
@@ -67,7 +68,7 @@ h2 {
 	opacity: 25%;
 }
 
-#movies-list_container p {
+#start-text {
 	color: rgb(190, 190, 190);
 	font-weight: 600;
 	font-size: 1.2rem;
@@ -100,12 +101,45 @@ input[type='search'] {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	cursor: pointer;
+	margin-left: -1.5px;
 }
 
 .start-display {
 	height: 70vh;
 }
 
+.start {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .hide {
 	display: none;
+}
+
+.img-item {
+	display: flex;
+	width: 90%;
+	margin: 18px 0;
+}
+
+.img-item img {
+	width: 100px;
+}
+
+#movies-list_wrapper hr {
+	width: 90%;
+	border: 1px solid rgb(244, 244, 244);
+}
+
+.desc {
+	margin-left: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.desc p {
+	color: black;
 }
