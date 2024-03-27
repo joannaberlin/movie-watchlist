@@ -5,6 +5,33 @@ body {
 	font-optical-sizing: auto;
 }
 
+h2,
+h4,
+p {
+	margin: 0;
+}
+
+h2,
+h4 {
+	color: white;
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+.main_wrapper header {
+	background-image: url('/images/background-img.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 75% 23%;
+	box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+	height: 18vh;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
 input[type='search'] {
 	padding: 17px;
 	padding-left: 55px;
