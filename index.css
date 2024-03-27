@@ -25,6 +25,12 @@ h2 {
 	font-size: 2.1rem;
 }
 
+.main_wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .movies-list_wrapper {
 	padding: 0 5px;
 	display: flex;
@@ -40,6 +46,7 @@ h2 {
 	background-position: 75% 23%;
 	box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
 	height: 18vh;
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
@@ -70,9 +77,28 @@ h2 {
 input[type='search'] {
 	padding: 17px;
 	padding-left: 55px;
-	width: 300px;
+	width: 100%;
 	height: 30px;
 	background-image: url('/images/search.svg');
 	background-repeat: no-repeat;
 	background-position: left center;
+	border: 2px solid rgb(190, 190, 190);
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+#form {
+	display: flex;
+	flex-direction: row;
+	position: absolute;
+	top: 16%;
+}
+
+#form button {
+	padding: 5px 15px;
+	background-color: rgb(244, 244, 244);
+	border: 2px solid rgb(190, 190, 190);
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	cursor: pointer;
 }
