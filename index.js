@@ -36,8 +36,8 @@ const handleSearch = (e) => {
 					<div class="desc">
 						<h3>${movie.Title}</h3>
 						<p>${movie.Year}</p>
-						<a href="https://www.imdb.com/title/${movie.imdbID}/">Check more on IMDb</a>
-						<button id="${movie.imdbID}">Watchlist</button>
+						<a href="https://www.imdb.com/title/${movie.imdbID}/">Check more on <span>IMDb</span></a>
+						<button id="${movie.imdbID}"><span>+</span>Watchlist</button>
 					</div>
 				</div>
 				<hr/>
