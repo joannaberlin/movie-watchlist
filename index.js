@@ -1,11 +1,3 @@
-/*
-User flow:
-- type search word/s in input field
-- click the button
-- clicking the button -> get search word from input field
-and place it in api url to get data (list of movies)
-- render the list of movies on the page
-*/
 const apiKey = process.env.API_KEY;
 
 let movieImdbIDs = [];
