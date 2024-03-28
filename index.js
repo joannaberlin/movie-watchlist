@@ -53,10 +53,10 @@ const handleSearch = async (e) => {
 				<div class="img-item">
 					<img src=${movie.Poster}/>
 					<div class="desc">
-						<h3>${movie.Title}</h3>
-						<p>${movie.Year}</p>
-						<a href="https://www.imdb.com/title/${movie.imdbID}/">Check more on <span>IMDb</span></a>
+						<h3>${movie.Title} ⭐<span id="rating-for-${movie.imdbID}"></span></h3>
 						<button id="plot-${movie.imdbID}" class="btn-plot">Movie plot</button>
+						<p id="plot-for-${movie.imdbID}"></p>
+						<a href="https://www.imdb.com/title/${movie.imdbID}/">Check more on <span>IMDb</span></a>
 						<button id="${movie.imdbID}"><span>+</span>Watchlist</button>
 					</div>
 				</div>
@@ -68,17 +68,47 @@ const handleSearch = async (e) => {
 	}
 
 	searchInput.value = '';
-	showMoviePlot();
+	showMovieDetails();
 };
 
-const showMoviePlot = () => {
-	const plotBtn1 = document.getElementById('plot-' + movieImdbIDs[0]);
-
-	plotBtn1.addEventListener('click', () => {
-		fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${movieImdbIDs[0]}`)
+const fetchMovieDetails = (id) => {
+	return new Promise((resolve, reject) => {
+		fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
 			.then((res) => res.json())
-			.then((data) => console.log(data));
+			.then((data) => {
+				const movieDetails = data;
+				resolve({ movieDetails });
+			})
+			.catch((error) => console.log(error));
 	});
+};
+
+const showMovieDetails = async () => {
+	const ratingSpan = document.getElementById('rating-for-' + movieImdbIDs[0]);
+	const plotBtn1 = document.getElementById('plot-' + movieImdbIDs[0]);
+	const plotBtn2 = document.getElementById('plot-' + movieImdbIDs[1]);
+
+	try {
+		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[0]);
+		console.log(movieDetails);
+		ratingSpan.innerHTML = movieDetails.imdbRating;
+	} catch (error) {
+		console.log('Error fetching movie details:', error);
+	}
+
+	// plotBtn1.addEventListener('click', async () => {
+	// 	try {
+	// 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[0]);
+	// 		console.log(movieDetails);
+	// 		document.getElementById('plot-for-' + movieImdbIDs[0]).innerHTML =
+	// 			movieDetails.Plot;
+	// 	} catch (error) {
+	// 		console.log('Error fetching movie details:', error);
+	// 	}
+	// });
+	// plotBtn2.addEventListener('click', () => {
+	// 	fetchMovieDetails(movieImdbIDs[1]);
+	// });
 };
 
 /*

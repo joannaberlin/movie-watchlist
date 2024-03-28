@@ -120,12 +120,14 @@ input[type='search'] {
 
 .img-item {
 	display: flex;
+	align-items: center;
 	width: 90%;
+	min-height: 20vh;
 	margin: 18px 0;
 }
 
 .img-item img {
-	width: 100px;
+	width: 130px;
 }
 
 #movies-list_wrapper hr {
@@ -142,8 +144,13 @@ input[type='search'] {
 }
 
 .desc h3 {
+	font-size: 1.1rem;
 	margin-top: 0;
 	margin-bottom: 8px;
+}
+
+.desc h3 span {
+	font-size: 0.8rem;
 }
 
 .desc a {
@@ -158,25 +165,23 @@ input[type='search'] {
 	font-weight: 800;
 }
 
-.desc p {
-	color: rgb(190, 190, 190);
-	font-weight: 600;
-	font-size: 1.2rem;
-	margin-bottom: 10px;
-}
-
 .desc button {
 	background-color: transparent;
-	margin-top: 12px;
 	border: none;
 	cursor: pointer;
 	font-weight: 600;
 	padding: 0;
 }
 
+.desc button:nth-of-type(2) {
+	margin-top: 12px;
+}
+
 .btn-plot {
 	color: rgb(190, 190, 190);
 	font-weight: 600;
+	margin: 0;
+	padding: 0;
 }
 
 .img-item button span {
@@ -188,4 +193,11 @@ input[type='search'] {
 	border: 1px solid black;
 	border-radius: 50%;
 	margin-right: 10px;
+}
+
+.desc p {
+	color: rgb(106, 106, 106);
+	font-size: 11px;
+	font-weight: 400;
+	margin: 7px 0;
 }
