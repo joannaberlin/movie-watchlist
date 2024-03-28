@@ -48,7 +48,7 @@ const handleSearch = async (e) => {
 						<button id="plot-${movie.imdbID}" class="btn-plot">Movie plot</button>
 						<p id="plot-for-${movie.imdbID}"></p>
 						<a href="https://www.imdb.com/title/${movie.imdbID}/">Check more on <span>IMDb</span></a>
-						<button id="${movie.imdbID}"><span>+</span>Watchlist</button>
+						<button id="${movie.imdbID}"><span class="add-btn">+</span>Watchlist</button>
 					</div>
 				</div>
 				<hr/>
