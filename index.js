@@ -9,7 +9,6 @@ and place it in api url to get data (list of movies)
 const apiKey = process.env.API_KEY;
 
 let movieImdbIDs = [];
-let list = [];
 const form = document.getElementById('form');
 const searchInput = document.getElementById('movie-search');
 const moviesListContainer = document.getElementById('movies-list_container');
@@ -45,15 +44,15 @@ const handleSearch = async (e) => {
 		movieImdbIDs = imdbIDs;
 
 		for (let movie of movies) {
-			// console.log(movie);
 			imgTextWrapper.classList.add('hide');
 			imgTextWrapper.classList.remove('start');
 			moviesListWrapper.classList.remove('start-display');
 			moviesListContainer.innerHTML += `
 				<div class="img-item">
-					<img src=${movie.Poster}/>
+					<img src=${movie.Poster} alt="poster for ${movie.Title}"/>
 					<div class="desc">
-						<h3>${movie.Title} ⭐<span id="rating-for-${movie.imdbID}"></span></h3>
+						<h3>${movie.Title} <span id="rating-for-${movie.imdbID}">⭐ </span></h3>
+						<h5 id="time-genre-for-${movie.imdbID}"></h5>
 						<button id="plot-${movie.imdbID}" class="btn-plot">Movie plot</button>
 						<p id="plot-for-${movie.imdbID}"></p>
 						<a href="https://www.imdb.com/title/${movie.imdbID}/">Check more on <span>IMDb</span></a>
@@ -68,6 +67,7 @@ const handleSearch = async (e) => {
 	}
 
 	searchInput.value = '';
+
 	showMoviesDetails();
 };
 
@@ -90,7 +90,10 @@ const getElem = (string, imdbID) => {
 const showMoviesDetails = async () => {
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[0]);
-		getElem('rating-for-', movieImdbIDs[0]).innerHTML = movieDetails.imdbRating;
+		getElem('rating-for-', movieImdbIDs[0]).innerHTML +=
+			movieDetails.imdbRating;
+		getElem('time-genre-for-', movieImdbIDs[0]).innerHTML =
+			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
@@ -107,7 +110,10 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[1]);
-		getElem('rating-for-', movieImdbIDs[1]).innerHTML = movieDetails.imdbRating;
+		getElem('rating-for-', movieImdbIDs[1]).innerHTML +=
+			movieDetails.imdbRating;
+		getElem('time-genre-for-', movieImdbIDs[1]).innerHTML =
+			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
@@ -123,7 +129,10 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[2]);
-		getElem('rating-for-', movieImdbIDs[2]).innerHTML = movieDetails.imdbRating;
+		getElem('rating-for-', movieImdbIDs[2]).innerHTML +=
+			movieDetails.imdbRating;
+		getElem('time-genre-for-', movieImdbIDs[2]).innerHTML =
+			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
@@ -139,7 +148,10 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[3]);
-		getElem('rating-for-', movieImdbIDs[3]).innerHTML = movieDetails.imdbRating;
+		getElem('rating-for-', movieImdbIDs[3]).innerHTML +=
+			movieDetails.imdbRating;
+		getElem('time-genre-for-', movieImdbIDs[3]).innerHTML =
+			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
@@ -155,7 +167,10 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[4]);
-		getElem('rating-for-', movieImdbIDs[4]).innerHTML = movieDetails.imdbRating;
+		getElem('rating-for-', movieImdbIDs[4]).innerHTML +=
+			movieDetails.imdbRating;
+		getElem('time-genre-for-', movieImdbIDs[4]).innerHTML =
+			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
@@ -171,7 +186,10 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[5]);
-		getElem('rating-for-', movieImdbIDs[5]).innerHTML = movieDetails.imdbRating;
+		getElem('rating-for-', movieImdbIDs[5]).innerHTML +=
+			movieDetails.imdbRating;
+		getElem('time-genre-for-', movieImdbIDs[5]).innerHTML =
+			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
@@ -187,7 +205,10 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[6]);
-		getElem('rating-for-', movieImdbIDs[6]).innerHTML = movieDetails.imdbRating;
+		getElem('rating-for-', movieImdbIDs[6]).innerHTML +=
+			movieDetails.imdbRating;
+		getElem('time-genre-for-', movieImdbIDs[6]).innerHTML =
+			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
@@ -203,7 +224,10 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[7]);
-		getElem('rating-for-', movieImdbIDs[7]).innerHTML = movieDetails.imdbRating;
+		getElem('rating-for-', movieImdbIDs[7]).innerHTML +=
+			movieDetails.imdbRating;
+		getElem('time-genre-for-', movieImdbIDs[7]).innerHTML =
+			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
@@ -219,7 +243,10 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[8]);
-		getElem('rating-for-', movieImdbIDs[8]).innerHTML = movieDetails.imdbRating;
+		getElem('rating-for-', movieImdbIDs[8]).innerHTML +=
+			movieDetails.imdbRating;
+		getElem('time-genre-for-', movieImdbIDs[8]).innerHTML =
+			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
@@ -235,7 +262,10 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[9]);
-		getElem('rating-for-', movieImdbIDs[9]).innerHTML = movieDetails.imdbRating;
+		getElem('rating-for-', movieImdbIDs[9]).innerHTML +=
+			movieDetails.imdbRating;
+		getElem('time-genre-for-', movieImdbIDs[9]).innerHTML =
+			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
@@ -250,44 +280,4 @@ const showMoviesDetails = async () => {
 	});
 };
 
-/*
-const handleSearch = (e) => {
-	e.preventDefault();
-	const searchValue = searchInput.value;
-	let moviesList = [];
-
-	fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${searchValue}`)
-		.then((res) => res.json())
-		.then((data) => {
-			moviesList = data.Search;
-
-			moviesListContainer.innerHTML = '';
-
-			for (let movie of moviesList) {
-				// console.log(movie);
-				movieImdbIDs.push(movie.imdbID);
-				imgTextWrapper.classList.add('hide');
-				imgTextWrapper.classList.remove('start');
-				moviesListWrapper.classList.remove('start-display');
-				moviesListContainer.innerHTML += `
-				<div class="img-item">
-					<img src=${movie.Poster}/>
-					<div class="desc">
-						<h3>${movie.Title}</h3>
-						<p>${movie.Year}</p>
-						<a href="https://www.imdb.com/title/${movie.imdbID}/">Check more on <span>IMDb</span></a>
-						<button id="plot-${movie.imdbID}" class="btn-plot">Movie plot</button>
-						<button id="${movie.imdbID}"><span>+</span>Watchlist</button>
-					</div>
-				</div>
-				<hr/>
-				`;
-			}
-		});
-
-	searchInput.value = '';
-};
-
-console.log(movieImdbIDs);
-*/
 form.addEventListener('submit', handleSearch);
