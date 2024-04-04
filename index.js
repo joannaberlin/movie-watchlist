@@ -1,7 +1,6 @@
 const apiKey = process.env.API_KEY;
 
 let movieImdbIDs = [];
-let moviesData = [];
 const form = document.getElementById('form');
 const searchInput = document.getElementById('movie-search');
 const moviesListContainer = document.getElementById('movies-list_container');
@@ -56,10 +55,6 @@ const handleSearch = async (e) => {
 				`;
 		}
 		showMoviesDetails();
-		// const btn = document.getElementById(movieImdbIDs[0]);
-		// btn.addEventListener('click', () => {
-		// 	console.log('dupa');
-		// });
 	} catch (error) {
 		console.log('Error fetching movies:', error);
 	}
@@ -94,15 +89,14 @@ const showMoviesDetails = async () => {
 			plot: movieDetails.Plot,
 			posterUrl: movieDetails.Poster,
 		};
-		for (let movieId of movieImdbIDs) {
-			const btn = document.getElementById(movieId);
-			btn.addEventListener('click', () => {
-				//add movie details to local storage
-				moviesData.push(movieData);
-				localStorage.setItem('id' + movieId, moviesData);
-				// localStorage.removeItem('id' + movieId);
-			});
-		}
+
+		const btn = document.getElementById(movieImdbIDs[0]);
+		btn.addEventListener('click', () => {
+			for (const [key, value] of Object.entries(movieData)) {
+				localStorage.setItem(movieImdbIDs[0] + key, value);
+			}
+		});
+
 		getElem('rating-for-', movieImdbIDs[0]).innerHTML +=
 			movieDetails.imdbRating;
 		getElem('time-genre-for-', movieImdbIDs[0]).innerHTML =
@@ -123,6 +117,22 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[1]);
+		const movieData = {
+			title: movieDetails.Title,
+			rating: movieDetails.imdbRating,
+			runtime: movieDetails.Runtime,
+			genre: movieDetails.Genre,
+			plot: movieDetails.Plot,
+			posterUrl: movieDetails.Poster,
+		};
+
+		const btn = document.getElementById(movieImdbIDs[1]);
+		btn.addEventListener('click', () => {
+			for (const [key, value] of Object.entries(movieData)) {
+				localStorage.setItem(movieImdbIDs[1] + key, value);
+			}
+		});
+
 		getElem('rating-for-', movieImdbIDs[1]).innerHTML +=
 			movieDetails.imdbRating;
 		getElem('time-genre-for-', movieImdbIDs[1]).innerHTML =
@@ -142,6 +152,22 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[2]);
+		const movieData = {
+			title: movieDetails.Title,
+			rating: movieDetails.imdbRating,
+			runtime: movieDetails.Runtime,
+			genre: movieDetails.Genre,
+			plot: movieDetails.Plot,
+			posterUrl: movieDetails.Poster,
+		};
+
+		const btn = document.getElementById(movieImdbIDs[2]);
+		btn.addEventListener('click', () => {
+			for (const [key, value] of Object.entries(movieData)) {
+				localStorage.setItem(movieImdbIDs[2] + key, value);
+			}
+		});
+
 		getElem('rating-for-', movieImdbIDs[2]).innerHTML +=
 			movieDetails.imdbRating;
 		getElem('time-genre-for-', movieImdbIDs[2]).innerHTML =
@@ -161,6 +187,22 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[3]);
+		const movieData = {
+			title: movieDetails.Title,
+			rating: movieDetails.imdbRating,
+			runtime: movieDetails.Runtime,
+			genre: movieDetails.Genre,
+			plot: movieDetails.Plot,
+			posterUrl: movieDetails.Poster,
+		};
+
+		const btn = document.getElementById(movieImdbIDs[3]);
+		btn.addEventListener('click', () => {
+			for (const [key, value] of Object.entries(movieData)) {
+				localStorage.setItem(movieImdbIDs[3] + key, value);
+			}
+		});
+
 		getElem('rating-for-', movieImdbIDs[3]).innerHTML +=
 			movieDetails.imdbRating;
 		getElem('time-genre-for-', movieImdbIDs[3]).innerHTML =
@@ -180,6 +222,22 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[4]);
+		const movieData = {
+			title: movieDetails.Title,
+			rating: movieDetails.imdbRating,
+			runtime: movieDetails.Runtime,
+			genre: movieDetails.Genre,
+			plot: movieDetails.Plot,
+			posterUrl: movieDetails.Poster,
+		};
+
+		const btn = document.getElementById(movieImdbIDs[4]);
+		btn.addEventListener('click', () => {
+			for (const [key, value] of Object.entries(movieData)) {
+				localStorage.setItem(movieImdbIDs[4] + key, value);
+			}
+		});
+
 		getElem('rating-for-', movieImdbIDs[4]).innerHTML +=
 			movieDetails.imdbRating;
 		getElem('time-genre-for-', movieImdbIDs[4]).innerHTML =
@@ -199,6 +257,22 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[5]);
+		const movieData = {
+			title: movieDetails.Title,
+			rating: movieDetails.imdbRating,
+			runtime: movieDetails.Runtime,
+			genre: movieDetails.Genre,
+			plot: movieDetails.Plot,
+			posterUrl: movieDetails.Poster,
+		};
+
+		const btn = document.getElementById(movieImdbIDs[5]);
+		btn.addEventListener('click', () => {
+			for (const [key, value] of Object.entries(movieData)) {
+				localStorage.setItem(movieImdbIDs[5] + key, value);
+			}
+		});
+
 		getElem('rating-for-', movieImdbIDs[5]).innerHTML +=
 			movieDetails.imdbRating;
 		getElem('time-genre-for-', movieImdbIDs[5]).innerHTML =
@@ -218,6 +292,22 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[6]);
+		const movieData = {
+			title: movieDetails.Title,
+			rating: movieDetails.imdbRating,
+			runtime: movieDetails.Runtime,
+			genre: movieDetails.Genre,
+			plot: movieDetails.Plot,
+			posterUrl: movieDetails.Poster,
+		};
+
+		const btn = document.getElementById(movieImdbIDs[6]);
+		btn.addEventListener('click', () => {
+			for (const [key, value] of Object.entries(movieData)) {
+				localStorage.setItem(movieImdbIDs[6] + key, value);
+			}
+		});
+
 		getElem('rating-for-', movieImdbIDs[6]).innerHTML +=
 			movieDetails.imdbRating;
 		getElem('time-genre-for-', movieImdbIDs[6]).innerHTML =
@@ -237,6 +327,22 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[7]);
+		const movieData = {
+			title: movieDetails.Title,
+			rating: movieDetails.imdbRating,
+			runtime: movieDetails.Runtime,
+			genre: movieDetails.Genre,
+			plot: movieDetails.Plot,
+			posterUrl: movieDetails.Poster,
+		};
+
+		const btn = document.getElementById(movieImdbIDs[7]);
+		btn.addEventListener('click', () => {
+			for (const [key, value] of Object.entries(movieData)) {
+				localStorage.setItem(movieImdbIDs[7] + key, value);
+			}
+		});
+
 		getElem('rating-for-', movieImdbIDs[7]).innerHTML +=
 			movieDetails.imdbRating;
 		getElem('time-genre-for-', movieImdbIDs[7]).innerHTML =
@@ -256,6 +362,22 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[8]);
+		const movieData = {
+			title: movieDetails.Title,
+			rating: movieDetails.imdbRating,
+			runtime: movieDetails.Runtime,
+			genre: movieDetails.Genre,
+			plot: movieDetails.Plot,
+			posterUrl: movieDetails.Poster,
+		};
+
+		const btn = document.getElementById(movieImdbIDs[8]);
+		btn.addEventListener('click', () => {
+			for (const [key, value] of Object.entries(movieData)) {
+				localStorage.setItem(movieImdbIDs[8] + key, value);
+			}
+		});
+
 		getElem('rating-for-', movieImdbIDs[8]).innerHTML +=
 			movieDetails.imdbRating;
 		getElem('time-genre-for-', movieImdbIDs[8]).innerHTML =
@@ -275,6 +397,22 @@ const showMoviesDetails = async () => {
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[9]);
+		const movieData = {
+			title: movieDetails.Title,
+			rating: movieDetails.imdbRating,
+			runtime: movieDetails.Runtime,
+			genre: movieDetails.Genre,
+			plot: movieDetails.Plot,
+			posterUrl: movieDetails.Poster,
+		};
+
+		const btn = document.getElementById(movieImdbIDs[9]);
+		btn.addEventListener('click', () => {
+			for (const [key, value] of Object.entries(movieData)) {
+				localStorage.setItem(movieImdbIDs[9] + key, value);
+			}
+		});
+
 		getElem('rating-for-', movieImdbIDs[9]).innerHTML +=
 			movieDetails.imdbRating;
 		getElem('time-genre-for-', movieImdbIDs[9]).innerHTML =
