@@ -1,6 +1,7 @@
 const apiKey = process.env.API_KEY;
 
 let movieImdbIDs = [];
+let moviesData = [];
 const form = document.getElementById('form');
 const searchInput = document.getElementById('movie-search');
 const moviesListContainer = document.getElementById('movies-list_container');
@@ -54,13 +55,16 @@ const handleSearch = async (e) => {
 				<hr/>
 				`;
 		}
+		showMoviesDetails();
+		// const btn = document.getElementById(movieImdbIDs[0]);
+		// btn.addEventListener('click', () => {
+		// 	console.log('dupa');
+		// });
 	} catch (error) {
 		console.log('Error fetching movies:', error);
 	}
 
 	searchInput.value = '';
-
-	showMoviesDetails();
 };
 
 const fetchMovieDetails = (id) => {
@@ -82,6 +86,23 @@ const getElem = (string, imdbID) => {
 const showMoviesDetails = async () => {
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[0]);
+		const movieData = {
+			title: movieDetails.Title,
+			rating: movieDetails.imdbRating,
+			runtime: movieDetails.Runtime,
+			genre: movieDetails.Genre,
+			plot: movieDetails.Plot,
+			posterUrl: movieDetails.Poster,
+		};
+		for (let movieId of movieImdbIDs) {
+			const btn = document.getElementById(movieId);
+			btn.addEventListener('click', () => {
+				//add movie details to local storage
+				moviesData.push(movieData);
+				localStorage.setItem('id' + movieId, moviesData);
+				// localStorage.removeItem('id' + movieId);
+			});
+		}
 		getElem('rating-for-', movieImdbIDs[0]).innerHTML +=
 			movieDetails.imdbRating;
 		getElem('time-genre-for-', movieImdbIDs[0]).innerHTML =

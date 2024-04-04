@@ -12,6 +12,10 @@
 	margin-bottom: 15px;
 }
 
+.watch-list_container a span {
+	font-weight: 500;
+}
+
 .watch-list_container a {
 	font-size: 0.9rem;
 	font-weight: 600;
