@@ -1,6 +1,9 @@
 const apiKey = process.env.API_KEY;
 
 let movieImdbIDs = [];
+let movies = localStorage.getItem('movies')
+	? JSON.parse(localStorage.getItem('movies'))
+	: [];
 const form = document.getElementById('form');
 const searchInput = document.getElementById('movie-search');
 const moviesListContainer = document.getElementById('movies-list_container');
@@ -82,6 +85,7 @@ const showMoviesDetails = async () => {
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[0]);
 		const movieData = {
+			id: movieImdbIDs[0],
 			title: movieDetails.Title,
 			rating: movieDetails.imdbRating,
 			runtime: movieDetails.Runtime,
@@ -89,12 +93,19 @@ const showMoviesDetails = async () => {
 			plot: movieDetails.Plot,
 			posterUrl: movieDetails.Poster,
 		};
+		console.log(movieData);
 
 		const btn = document.getElementById(movieImdbIDs[0]);
 		btn.addEventListener('click', () => {
-			for (const [key, value] of Object.entries(movieData)) {
-				localStorage.setItem(movieImdbIDs[0] + key, value);
+			// localStorage.clear();
+			if (
+				movies.length > 0 &&
+				movies.find((movie) => movie.id === movieImdbIDs[0])
+			) {
+				return;
 			}
+			movies.push(movieData);
+			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
 		getElem('rating-for-', movieImdbIDs[0]).innerHTML +=
@@ -118,6 +129,7 @@ const showMoviesDetails = async () => {
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[1]);
 		const movieData = {
+			id: movieImdbIDs[1],
 			title: movieDetails.Title,
 			rating: movieDetails.imdbRating,
 			runtime: movieDetails.Runtime,
@@ -128,9 +140,14 @@ const showMoviesDetails = async () => {
 
 		const btn = document.getElementById(movieImdbIDs[1]);
 		btn.addEventListener('click', () => {
-			for (const [key, value] of Object.entries(movieData)) {
-				localStorage.setItem(movieImdbIDs[1] + key, value);
+			if (
+				movies.length > 0 &&
+				movies.find((movie) => movie.id === movieImdbIDs[1])
+			) {
+				return;
 			}
+			movies.push(movieData);
+			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
 		getElem('rating-for-', movieImdbIDs[1]).innerHTML +=
@@ -153,6 +170,7 @@ const showMoviesDetails = async () => {
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[2]);
 		const movieData = {
+			id: movieImdbIDs[2],
 			title: movieDetails.Title,
 			rating: movieDetails.imdbRating,
 			runtime: movieDetails.Runtime,
@@ -163,9 +181,14 @@ const showMoviesDetails = async () => {
 
 		const btn = document.getElementById(movieImdbIDs[2]);
 		btn.addEventListener('click', () => {
-			for (const [key, value] of Object.entries(movieData)) {
-				localStorage.setItem(movieImdbIDs[2] + key, value);
+			if (
+				movies.length > 0 &&
+				movies.find((movie) => movie.id === movieImdbIDs[2])
+			) {
+				return;
 			}
+			movies.push(movieData);
+			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
 		getElem('rating-for-', movieImdbIDs[2]).innerHTML +=
@@ -188,6 +211,7 @@ const showMoviesDetails = async () => {
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[3]);
 		const movieData = {
+			id: movieImdbIDs[3],
 			title: movieDetails.Title,
 			rating: movieDetails.imdbRating,
 			runtime: movieDetails.Runtime,
@@ -198,9 +222,14 @@ const showMoviesDetails = async () => {
 
 		const btn = document.getElementById(movieImdbIDs[3]);
 		btn.addEventListener('click', () => {
-			for (const [key, value] of Object.entries(movieData)) {
-				localStorage.setItem(movieImdbIDs[3] + key, value);
+			if (
+				movies.length > 0 &&
+				movies.find((movie) => movie.id === movieImdbIDs[3])
+			) {
+				return;
 			}
+			movies.push(movieData);
+			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
 		getElem('rating-for-', movieImdbIDs[3]).innerHTML +=
@@ -223,6 +252,7 @@ const showMoviesDetails = async () => {
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[4]);
 		const movieData = {
+			id: movieImdbIDs[4],
 			title: movieDetails.Title,
 			rating: movieDetails.imdbRating,
 			runtime: movieDetails.Runtime,
@@ -233,9 +263,14 @@ const showMoviesDetails = async () => {
 
 		const btn = document.getElementById(movieImdbIDs[4]);
 		btn.addEventListener('click', () => {
-			for (const [key, value] of Object.entries(movieData)) {
-				localStorage.setItem(movieImdbIDs[4] + key, value);
+			if (
+				movies.length > 0 &&
+				movies.find((movie) => movie.id === movieImdbIDs[4])
+			) {
+				return;
 			}
+			movies.push(movieData);
+			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
 		getElem('rating-for-', movieImdbIDs[4]).innerHTML +=
@@ -258,6 +293,7 @@ const showMoviesDetails = async () => {
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[5]);
 		const movieData = {
+			id: movieImdbIDs[5],
 			title: movieDetails.Title,
 			rating: movieDetails.imdbRating,
 			runtime: movieDetails.Runtime,
@@ -268,9 +304,14 @@ const showMoviesDetails = async () => {
 
 		const btn = document.getElementById(movieImdbIDs[5]);
 		btn.addEventListener('click', () => {
-			for (const [key, value] of Object.entries(movieData)) {
-				localStorage.setItem(movieImdbIDs[5] + key, value);
+			if (
+				movies.length > 0 &&
+				movies.find((movie) => movie.id === movieImdbIDs[5])
+			) {
+				return;
 			}
+			movies.push(movieData);
+			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
 		getElem('rating-for-', movieImdbIDs[5]).innerHTML +=
@@ -293,6 +334,7 @@ const showMoviesDetails = async () => {
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[6]);
 		const movieData = {
+			id: movieImdbIDs[6],
 			title: movieDetails.Title,
 			rating: movieDetails.imdbRating,
 			runtime: movieDetails.Runtime,
@@ -303,9 +345,14 @@ const showMoviesDetails = async () => {
 
 		const btn = document.getElementById(movieImdbIDs[6]);
 		btn.addEventListener('click', () => {
-			for (const [key, value] of Object.entries(movieData)) {
-				localStorage.setItem(movieImdbIDs[6] + key, value);
+			if (
+				movies.length > 0 &&
+				movies.find((movie) => movie.id === movieImdbIDs[6])
+			) {
+				return;
 			}
+			movies.push(movieData);
+			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
 		getElem('rating-for-', movieImdbIDs[6]).innerHTML +=
@@ -328,6 +375,7 @@ const showMoviesDetails = async () => {
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[7]);
 		const movieData = {
+			id: movieImdbIDs[7],
 			title: movieDetails.Title,
 			rating: movieDetails.imdbRating,
 			runtime: movieDetails.Runtime,
@@ -338,9 +386,14 @@ const showMoviesDetails = async () => {
 
 		const btn = document.getElementById(movieImdbIDs[7]);
 		btn.addEventListener('click', () => {
-			for (const [key, value] of Object.entries(movieData)) {
-				localStorage.setItem(movieImdbIDs[7] + key, value);
+			if (
+				movies.length > 0 &&
+				movies.find((movie) => movie.id === movieImdbIDs[7])
+			) {
+				return;
 			}
+			movies.push(movieData);
+			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
 		getElem('rating-for-', movieImdbIDs[7]).innerHTML +=
@@ -363,6 +416,7 @@ const showMoviesDetails = async () => {
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[8]);
 		const movieData = {
+			id: movieImdbIDs[8],
 			title: movieDetails.Title,
 			rating: movieDetails.imdbRating,
 			runtime: movieDetails.Runtime,
@@ -373,9 +427,14 @@ const showMoviesDetails = async () => {
 
 		const btn = document.getElementById(movieImdbIDs[8]);
 		btn.addEventListener('click', () => {
-			for (const [key, value] of Object.entries(movieData)) {
-				localStorage.setItem(movieImdbIDs[8] + key, value);
+			if (
+				movies.length > 0 &&
+				movies.find((movie) => movie.id === movieImdbIDs[8])
+			) {
+				return;
 			}
+			movies.push(movieData);
+			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
 		getElem('rating-for-', movieImdbIDs[8]).innerHTML +=
@@ -398,6 +457,7 @@ const showMoviesDetails = async () => {
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[9]);
 		const movieData = {
+			id: movieImdbIDs[9],
 			title: movieDetails.Title,
 			rating: movieDetails.imdbRating,
 			runtime: movieDetails.Runtime,
@@ -408,9 +468,14 @@ const showMoviesDetails = async () => {
 
 		const btn = document.getElementById(movieImdbIDs[9]);
 		btn.addEventListener('click', () => {
-			for (const [key, value] of Object.entries(movieData)) {
-				localStorage.setItem(movieImdbIDs[9] + key, value);
+			if (
+				movies.length > 0 &&
+				movies.find((movie) => movie.id === movieImdbIDs[9])
+			) {
+				return;
 			}
+			movies.push(movieData);
+			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
 		getElem('rating-for-', movieImdbIDs[9]).innerHTML +=
