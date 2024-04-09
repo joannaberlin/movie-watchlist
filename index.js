@@ -1,4 +1,5 @@
 const apiKey = process.env.API_KEY;
+import { utils } from './utils';
 
 let movieImdbIDs = [];
 let movies = localStorage.getItem('movies')
@@ -77,10 +78,6 @@ const fetchMovieDetails = (id) => {
 	});
 };
 
-const getElem = (string, imdbID) => {
-	return document.getElementById(string + imdbID);
-};
-
 const showMoviesDetails = async () => {
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[0]);
@@ -108,23 +105,26 @@ const showMoviesDetails = async () => {
 			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
-		getElem('rating-for-', movieImdbIDs[0]).innerHTML +=
+		utils.getElem('rating-for-', movieImdbIDs[0]).innerHTML +=
 			movieDetails.imdbRating;
-		getElem('time-genre-for-', movieImdbIDs[0]).innerHTML =
+		utils.getElem('time-genre-for-', movieImdbIDs[0]).innerHTML =
 			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
 
-	getElem('plot-', movieImdbIDs[0]).addEventListener('click', async () => {
-		try {
-			const { movieDetails } = await fetchMovieDetails(movieImdbIDs[0]);
-			console.log(movieDetails);
-			getElem('plot-for-', movieImdbIDs[0]).innerHTML = movieDetails.Plot;
-		} catch (error) {
-			console.log('Error fetching movie details:', error);
-		}
-	});
+	utils
+		.getElem('plot-', movieImdbIDs[0])
+		.addEventListener('click', async () => {
+			try {
+				const { movieDetails } = await fetchMovieDetails(movieImdbIDs[0]);
+				console.log(movieDetails);
+				utils.getElem('plot-for-', movieImdbIDs[0]).innerHTML =
+					movieDetails.Plot;
+			} catch (error) {
+				console.log('Error fetching movie details:', error);
+			}
+		});
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[1]);
@@ -150,22 +150,25 @@ const showMoviesDetails = async () => {
 			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
-		getElem('rating-for-', movieImdbIDs[1]).innerHTML +=
+		utils.getElem('rating-for-', movieImdbIDs[1]).innerHTML +=
 			movieDetails.imdbRating;
-		getElem('time-genre-for-', movieImdbIDs[1]).innerHTML =
+		utils.getElem('time-genre-for-', movieImdbIDs[1]).innerHTML =
 			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
 
-	getElem('plot-', movieImdbIDs[1]).addEventListener('click', async () => {
-		try {
-			const { movieDetails } = await fetchMovieDetails(movieImdbIDs[1]);
-			getElem('plot-for-', movieImdbIDs[1]).innerHTML = movieDetails.Plot;
-		} catch (error) {
-			console.log('Error fetching movie details:', error);
-		}
-	});
+	utils
+		.getElem('plot-', movieImdbIDs[1])
+		.addEventListener('click', async () => {
+			try {
+				const { movieDetails } = await fetchMovieDetails(movieImdbIDs[1]);
+				utils.getElem('plot-for-', movieImdbIDs[1]).innerHTML =
+					movieDetails.Plot;
+			} catch (error) {
+				console.log('Error fetching movie details:', error);
+			}
+		});
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[2]);
@@ -191,22 +194,25 @@ const showMoviesDetails = async () => {
 			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
-		getElem('rating-for-', movieImdbIDs[2]).innerHTML +=
+		utils.getElem('rating-for-', movieImdbIDs[2]).innerHTML +=
 			movieDetails.imdbRating;
-		getElem('time-genre-for-', movieImdbIDs[2]).innerHTML =
+		utils.getElem('time-genre-for-', movieImdbIDs[2]).innerHTML =
 			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
 
-	getElem('plot-', movieImdbIDs[2]).addEventListener('click', async () => {
-		try {
-			const { movieDetails } = await fetchMovieDetails(movieImdbIDs[2]);
-			getElem('plot-for-', movieImdbIDs[2]).innerHTML = movieDetails.Plot;
-		} catch (error) {
-			console.log('Error fetching movie details:', error);
-		}
-	});
+	utils
+		.getElem('plot-', movieImdbIDs[2])
+		.addEventListener('click', async () => {
+			try {
+				const { movieDetails } = await fetchMovieDetails(movieImdbIDs[2]);
+				utils.getElem('plot-for-', movieImdbIDs[2]).innerHTML =
+					movieDetails.Plot;
+			} catch (error) {
+				console.log('Error fetching movie details:', error);
+			}
+		});
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[3]);
@@ -232,22 +238,25 @@ const showMoviesDetails = async () => {
 			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
-		getElem('rating-for-', movieImdbIDs[3]).innerHTML +=
+		utils.getElem('rating-for-', movieImdbIDs[3]).innerHTML +=
 			movieDetails.imdbRating;
-		getElem('time-genre-for-', movieImdbIDs[3]).innerHTML =
+		utils.getElem('time-genre-for-', movieImdbIDs[3]).innerHTML =
 			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
 
-	getElem('plot-', movieImdbIDs[3]).addEventListener('click', async () => {
-		try {
-			const { movieDetails } = await fetchMovieDetails(movieImdbIDs[3]);
-			getElem('plot-for-', movieImdbIDs[3]).innerHTML = movieDetails.Plot;
-		} catch (error) {
-			console.log('Error fetching movie details:', error);
-		}
-	});
+	utils
+		.getElem('plot-', movieImdbIDs[3])
+		.addEventListener('click', async () => {
+			try {
+				const { movieDetails } = await fetchMovieDetails(movieImdbIDs[3]);
+				utils.getElem('plot-for-', movieImdbIDs[3]).innerHTML =
+					movieDetails.Plot;
+			} catch (error) {
+				console.log('Error fetching movie details:', error);
+			}
+		});
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[4]);
@@ -273,22 +282,25 @@ const showMoviesDetails = async () => {
 			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
-		getElem('rating-for-', movieImdbIDs[4]).innerHTML +=
+		utils.getElem('rating-for-', movieImdbIDs[4]).innerHTML +=
 			movieDetails.imdbRating;
-		getElem('time-genre-for-', movieImdbIDs[4]).innerHTML =
+		utils.getElem('time-genre-for-', movieImdbIDs[4]).innerHTML =
 			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
 
-	getElem('plot-', movieImdbIDs[4]).addEventListener('click', async () => {
-		try {
-			const { movieDetails } = await fetchMovieDetails(movieImdbIDs[4]);
-			getElem('plot-for-', movieImdbIDs[4]).innerHTML = movieDetails.Plot;
-		} catch (error) {
-			console.log('Error fetching movie details:', error);
-		}
-	});
+	utils
+		.getElem('plot-', movieImdbIDs[4])
+		.addEventListener('click', async () => {
+			try {
+				const { movieDetails } = await fetchMovieDetails(movieImdbIDs[4]);
+				utils.getElem('plot-for-', movieImdbIDs[4]).innerHTML =
+					movieDetails.Plot;
+			} catch (error) {
+				console.log('Error fetching movie details:', error);
+			}
+		});
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[5]);
@@ -314,22 +326,25 @@ const showMoviesDetails = async () => {
 			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
-		getElem('rating-for-', movieImdbIDs[5]).innerHTML +=
+		utils.getElem('rating-for-', movieImdbIDs[5]).innerHTML +=
 			movieDetails.imdbRating;
-		getElem('time-genre-for-', movieImdbIDs[5]).innerHTML =
+		utils.getElem('time-genre-for-', movieImdbIDs[5]).innerHTML =
 			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
 
-	getElem('plot-', movieImdbIDs[5]).addEventListener('click', async () => {
-		try {
-			const { movieDetails } = await fetchMovieDetails(movieImdbIDs[5]);
-			getElem('plot-for-', movieImdbIDs[5]).innerHTML = movieDetails.Plot;
-		} catch (error) {
-			console.log('Error fetching movie details:', error);
-		}
-	});
+	utils
+		.getElem('plot-', movieImdbIDs[5])
+		.addEventListener('click', async () => {
+			try {
+				const { movieDetails } = await fetchMovieDetails(movieImdbIDs[5]);
+				utils.getElem('plot-for-', movieImdbIDs[5]).innerHTML =
+					movieDetails.Plot;
+			} catch (error) {
+				console.log('Error fetching movie details:', error);
+			}
+		});
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[6]);
@@ -355,22 +370,25 @@ const showMoviesDetails = async () => {
 			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
-		getElem('rating-for-', movieImdbIDs[6]).innerHTML +=
+		utils.getElem('rating-for-', movieImdbIDs[6]).innerHTML +=
 			movieDetails.imdbRating;
-		getElem('time-genre-for-', movieImdbIDs[6]).innerHTML =
+		utils.getElem('time-genre-for-', movieImdbIDs[6]).innerHTML =
 			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
 
-	getElem('plot-', movieImdbIDs[6]).addEventListener('click', async () => {
-		try {
-			const { movieDetails } = await fetchMovieDetails(movieImdbIDs[6]);
-			getElem('plot-for-', movieImdbIDs[6]).innerHTML = movieDetails.Plot;
-		} catch (error) {
-			console.log('Error fetching movie details:', error);
-		}
-	});
+	utils
+		.getElem('plot-', movieImdbIDs[6])
+		.addEventListener('click', async () => {
+			try {
+				const { movieDetails } = await fetchMovieDetails(movieImdbIDs[6]);
+				utils.getElem('plot-for-', movieImdbIDs[6]).innerHTML =
+					movieDetails.Plot;
+			} catch (error) {
+				console.log('Error fetching movie details:', error);
+			}
+		});
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[7]);
@@ -396,22 +414,25 @@ const showMoviesDetails = async () => {
 			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
-		getElem('rating-for-', movieImdbIDs[7]).innerHTML +=
+		utils.getElem('rating-for-', movieImdbIDs[7]).innerHTML +=
 			movieDetails.imdbRating;
-		getElem('time-genre-for-', movieImdbIDs[7]).innerHTML =
+		utils.getElem('time-genre-for-', movieImdbIDs[7]).innerHTML =
 			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
 
-	getElem('plot-', movieImdbIDs[7]).addEventListener('click', async () => {
-		try {
-			const { movieDetails } = await fetchMovieDetails(movieImdbIDs[7]);
-			getElem('plot-for-', movieImdbIDs[7]).innerHTML = movieDetails.Plot;
-		} catch (error) {
-			console.log('Error fetching movie details:', error);
-		}
-	});
+	utils
+		.getElem('plot-', movieImdbIDs[7])
+		.addEventListener('click', async () => {
+			try {
+				const { movieDetails } = await fetchMovieDetails(movieImdbIDs[7]);
+				utils.getElem('plot-for-', movieImdbIDs[7]).innerHTML =
+					movieDetails.Plot;
+			} catch (error) {
+				console.log('Error fetching movie details:', error);
+			}
+		});
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[8]);
@@ -437,22 +458,25 @@ const showMoviesDetails = async () => {
 			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
-		getElem('rating-for-', movieImdbIDs[8]).innerHTML +=
+		utils.getElem('rating-for-', movieImdbIDs[8]).innerHTML +=
 			movieDetails.imdbRating;
-		getElem('time-genre-for-', movieImdbIDs[8]).innerHTML =
+		utils.getElem('time-genre-for-', movieImdbIDs[8]).innerHTML =
 			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
 
-	getElem('plot-', movieImdbIDs[8]).addEventListener('click', async () => {
-		try {
-			const { movieDetails } = await fetchMovieDetails(movieImdbIDs[8]);
-			getElem('plot-for-', movieImdbIDs[8]).innerHTML = movieDetails.Plot;
-		} catch (error) {
-			console.log('Error fetching movie details:', error);
-		}
-	});
+	utils
+		.getElem('plot-', movieImdbIDs[8])
+		.addEventListener('click', async () => {
+			try {
+				const { movieDetails } = await fetchMovieDetails(movieImdbIDs[8]);
+				utils.getElem('plot-for-', movieImdbIDs[8]).innerHTML =
+					movieDetails.Plot;
+			} catch (error) {
+				console.log('Error fetching movie details:', error);
+			}
+		});
 
 	try {
 		const { movieDetails } = await fetchMovieDetails(movieImdbIDs[9]);
@@ -478,22 +502,24 @@ const showMoviesDetails = async () => {
 			localStorage.setItem('movies', JSON.stringify(movies));
 		});
 
-		getElem('rating-for-', movieImdbIDs[9]).innerHTML +=
+		utils.getElem('rating-for-', movieImdbIDs[9]).innerHTML +=
 			movieDetails.imdbRating;
-		getElem('time-genre-for-', movieImdbIDs[9]).innerHTML =
+		utils.getElem('time-genre-for-', movieImdbIDs[9]).innerHTML =
 			movieDetails.Runtime + ' ' + movieDetails.Genre;
 	} catch (error) {
 		console.log('Error fetching movie details:', error);
 	}
 
-	getElem('plot-', movieImdbIDs[9]).addEventListener('click', async () => {
-		try {
-			const { movieDetails } = await fetchMovieDetails(movieImdbIDs[9]);
-			getElem('plot-for-', movieImdbIDs[9]).innerHTML = movieDetails.Plot;
-		} catch (error) {
-			console.log('Error fetching movie details:', error);
-		}
-	});
+	utils
+		.getElem('plot-', movieImdbIDs[9])
+		.addEventListener('click', async () => {
+			try {
+				const { movieDetails } = await fetchMovieDetails(movieImdbIDs[9]);
+				getElem('plot-for-', movieImdbIDs[9]).innerHTML = movieDetails.Plot;
+			} catch (error) {
+				console.log('Error fetching movie details:', error);
+			}
+		});
 };
 
 form.addEventListener('submit', handleSearch);
