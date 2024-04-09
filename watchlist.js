@@ -5,8 +5,6 @@ let movies = localStorage.getItem('movies')
 	? JSON.parse(localStorage.getItem('movies'))
 	: [];
 
-console.log(movies);
-
 for (let movie of movies) {
 	emptyListContainer.classList.add('hide');
 	watchListContainer.innerHTML += `
@@ -16,9 +14,23 @@ for (let movie of movies) {
                 <h3>${movie.title} <span id="rating-for-${movie.id}">⭐ ${movie.rating}</span></h3>
                 <h5>${movie.genre}</h5>
                 <p>${movie.plot}</p>
-                <button id="${movie.id}"><span class="add-btn">-</span>Remove</button>
+                <button id=${movie.id} class="btn"><span class="add-btn">-</span>Remove</button>
             </div>
         </div>
         <hr/>
         `;
 }
+
+const btns = document.querySelectorAll('.btn');
+console.log(btns);
+
+for (let btn of btns) {
+	// emptyListContainer.classList.add('hide');
+	btn.addEventListener('click', () => {
+		movies = movies.filter((movie) => movie.id !== btn.id);
+		localStorage.setItem('movies', JSON.stringify(movies));
+		location.reload();
+	});
+}
+
+// console.log(movies);
