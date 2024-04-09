@@ -22,15 +22,11 @@ for (let movie of movies) {
 }
 
 const btns = document.querySelectorAll('.btn');
-console.log(btns);
 
 for (let btn of btns) {
-	// emptyListContainer.classList.add('hide');
 	btn.addEventListener('click', () => {
 		movies = movies.filter((movie) => movie.id !== btn.id);
 		localStorage.setItem('movies', JSON.stringify(movies));
 		location.reload();
 	});
 }
-
-// console.log(movies);

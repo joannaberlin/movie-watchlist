@@ -90,11 +90,9 @@ const showMoviesDetails = async () => {
 			plot: movieDetails.Plot,
 			posterUrl: movieDetails.Poster,
 		};
-		console.log(movieData);
 
 		const btn = document.getElementById(movieImdbIDs[0]);
 		btn.addEventListener('click', () => {
-			// localStorage.clear();
 			if (
 				movies.length > 0 &&
 				movies.find((movie) => movie.id === movieImdbIDs[0])
@@ -118,7 +116,6 @@ const showMoviesDetails = async () => {
 		.addEventListener('click', async () => {
 			try {
 				const { movieDetails } = await fetchMovieDetails(movieImdbIDs[0]);
-				console.log(movieDetails);
 				utils.getElem('plot-for-', movieImdbIDs[0]).innerHTML =
 					movieDetails.Plot;
 			} catch (error) {
@@ -515,7 +512,8 @@ const showMoviesDetails = async () => {
 		.addEventListener('click', async () => {
 			try {
 				const { movieDetails } = await fetchMovieDetails(movieImdbIDs[9]);
-				getElem('plot-for-', movieImdbIDs[9]).innerHTML = movieDetails.Plot;
+				utils.getElem('plot-for-', movieImdbIDs[9]).innerHTML =
+					movieDetails.Plot;
 			} catch (error) {
 				console.log('Error fetching movie details:', error);
 			}
